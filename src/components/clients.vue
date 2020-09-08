@@ -29,10 +29,10 @@
       </div> 
 
       <div class="form-group">
-        <input id='male' class="form-group__input" type="radio">
-        <label for="male" class="form-group__label">Мужчина</label>
+        <input name='sex' id='male' class="form-group__input" type="radio">
+        <label for="male" class="form-group__label" checked>Мужчина</label>
         
-        <input id='female' class="form-group__input" type="radio">
+        <input name='sex' id='female' class="form-group__input" type="radio">
         <label for="female" class="form-group__label">Женщина</label>
       </div>
       
@@ -124,6 +124,7 @@
       </div> 
     </div>
 
+    <button type="submit" class="btn">Создать</button>
   </form>
 </template>
 
