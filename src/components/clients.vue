@@ -141,6 +141,7 @@ export default {
       surname: '',
       name: '',
       middlename: '',
+      bdate: '',
       tel: '',
       gender: 'male',
       index: '',
@@ -152,6 +153,7 @@ export default {
       series: '',
       number: '',
       issued: '',
+      passdate: '',
       smsDisagree: false,
       doctor: 'Ivanov',
       doctors: [
