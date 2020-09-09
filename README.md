@@ -1,24 +1,11 @@
-# create-client
+# [Форма создания клиента](https://agants.github.io/create-client/)
 
-## Project setup
-```
-npm install
-```
+## Используемые технологии: 
+* Vue.js
+* Vuelidate
+* Sass
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Задание:
+* Валидация формы и вывод ошибки
+* Сообщение об успешном создание клиента
+* Адаптивная форма
