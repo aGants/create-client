@@ -46,10 +46,12 @@
 
       <div class="form-group">
         <label for="doctor" class="form-group__label">Лечащий врач:</label>
-        <select id="doctor" class="form-group__input_select" size="1">
-          <option>Иванов</option>
-          <option>Захаров</option>
-          <option>Чернышева</option>
+        <select id="doctor" class="form-group__input_select" v-model='doctor'>
+          <option v-for="(doctor, index) in doctors" 
+            :value="doctor.value"
+            :key='index'>
+            {{ doctor.label }}
+          </option>
         </select>
       </div>
 
@@ -93,11 +95,13 @@
 
     <div class="form-block">
       <div class="form-group">
-        <label for="document" class="form-group__label">Тип документа:</label>
-        <select id="document" class="form-group__input_select" size="1">
-          <option>Паспорт</option>
-          <option>Свидетельство о рождении</option>
-          <option>Вод. удостоверение</option>
+        <label for="doc" class="form-group__label">Тип документа:</label>
+        <select id="doc" class="form-group__input_select" size="1" v-model='doc'>
+          <option v-for="(doc, index) in docs" 
+            :value="doc.value"
+            :key='index'>
+            {{ doc.label }}
+            </option>
         </select>
       </div>
 
@@ -135,7 +139,6 @@ export default {
       surname: '',
       name: '',
       middlename: '',
-      bdate: '',
       tel: '',
       index: '',
       country: '',
@@ -143,11 +146,39 @@ export default {
       city: '',
       street: '',
       home: '',
-      document: '',
       series: '',
       number: '',
       issued: '',
-      passdate: ''
+      doctor: 'Ivanov',
+      doctors: [
+        {
+          label: 'Иванов',
+          value: 'Ivanov'
+        },
+        {
+          label: 'Захаров',
+          value: 'Zakharov'
+        },
+        {
+          label: 'Чернышева',
+          value: 'Chernysheva'
+        }
+      ],
+      doc: 'Passport',
+      docs: [
+        {
+          label: 'Паспорт',
+          value: 'Passport'
+        },
+        {
+          label: 'Свидетельство о рождении',
+          value: 'Birth certificate '
+        },
+        {
+          label: 'Вод. удостоверение',
+          value: 'Drivers license'
+        },
+      ]
     }
   }
 }
