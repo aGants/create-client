@@ -41,20 +41,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10vh 0;
+  min-height: 100vh;
   background-color: #e2e2ee;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 p {
+  margin-left: 5px;
   font-size: 12px;
   color: #666
 }
 
 .create {
   margin: auto;
+  padding: 20px 30px;
   background-color: #ffffff;
-  padding: 0px 30px;
 }
 
 .btn {
@@ -72,10 +73,14 @@ p {
     outline: none;
     outline-offset: 0;
   }
+  &_feedback {
+    color: red;
+  }
 }
 
 .form {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   &-block {
     padding: 15px 30px 5px;

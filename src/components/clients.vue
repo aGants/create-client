@@ -264,8 +264,9 @@ export default {
       this.$v.form.$touch()
       this.$v.address.$touch()
       this.$v.pass.$touch()
-      if (this.$v.form.$error) {
-        console.log('Отправка')
+      if (!this.$v.form.$error) {
+        alert('Клиент создан!');
+        location.reload();
       }
     }
   }
