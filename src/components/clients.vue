@@ -1,15 +1,20 @@
 <template>
-  <form class="create">
+  <form class="create" @submit.prevent="submitForm">
   <div class='form'>
     <div class="form-block">
       <div class="form-group">
         <label for="surname" class="form-group__label">Фамилия:</label>
-        <input id="surname" class="form-group__input" type="text" v-model.trim="form.surname">
+        <input id="surname" class="form-group__input" type="text" v-model.trim="form.surname"
+          :class="$v.form.surname.$error ? 'error' : ''" 
+        >
+
       </div>
 
       <div class="form-group">
         <label for="name" class="form-group__label">Имя:</label>
-        <input id="name" class="form-group__input" type="text" v-model.trim="form.name">
+        <input id="name" class="form-group__input" type="text" v-model.trim="form.name"
+        :class="$v.form.name.$error ? 'error' : ''" 
+        >
       </div>
 
       <div class="form-group">
@@ -19,7 +24,9 @@
 
       <div class="form-group">
         <label for="bdate" class="form-group__label">Дата рождения:</label>
-        <input id="bdate" class="form-group__input" type="date" v-model.trim="form.bdate">
+        <input id="bdate" class="form-group__input" type="date" v-model.trim="form.bdate"
+        :class="$v.form.bdate.$error ? 'error' : ''" 
+        >
       </div>
       
       <div class="form-group">
@@ -81,7 +88,9 @@
 
       <div class="form-group">
         <label for="city" class="form-group__label">Город:</label>
-        <input id="city" class="form-group__input" v-model.trim="address.city">
+        <input id="city" class="form-group__input" v-model.trim="address.city"
+        :class="$v.address.city.$error ? 'error' : ''" 
+        >
       </div> 
 
       <div class="form-group">
@@ -125,7 +134,9 @@
 
       <div class="form-group">
         <label for="passdate" class="form-group__label">Дата выдачи:</label>
-        <input id="passdate" class="form-group__input" type='date' v-model.trim="pass.passdate">
+        <input id="passdate" class="form-group__input" type='date' v-model.trim="pass.passdate"
+        :class="$v.pass.passdate.$error ? 'error' : ''" 
+        >
       </div> 
     </div>
   </div>
@@ -135,7 +146,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength, between } from 'vuelidate/lib/validators'
+import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
@@ -213,9 +224,30 @@ export default {
     }
   },
   validations: {
-
+    form: {
+      surname: { required },
+      name: { required },
+      bdate: { required },
+      tel: { required, minLength: minLength(11) },
+      client: { required },
+    },
+    address: {
+      city: { required },
+    },
+    pass: {
+      doc: { required },
+      passdate: { required },
+    },
+  },
+  methods: {
+    submitForm() {
+      this.$v.form.$touch()
+      this.$v.address.$touch()
+      this.$v.pass.$touch()
+      if (this.$v.form.$error) {
+        console.log('Отправка')
+      }
+    }
   }
-
-
 }
 </script>

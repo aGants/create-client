@@ -48,6 +48,16 @@ body {
   cursor: pointer;
 }
 
+.error {
+  border-color: red !important;
+  outline: none;
+  outline-offset: 0;
+  &:active, :focus {
+    outline: none;
+    outline-offset: 0;
+  }
+}
+
 .form {
   display: flex;
   flex-wrap: wrap;
@@ -75,6 +85,11 @@ body {
       width: $input-width;
       height: $input-height;
       padding: $input-padding;
+      border: 1px solid #ddd;
+      &:hover, &:focus, &:active  {
+        border: 1px solid #000000;
+        outline: none;
+      }
 
       &_textarea {
         width: $input-width+2;
