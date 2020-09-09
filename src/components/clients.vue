@@ -134,7 +134,11 @@
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+import { required, minLength, between } from 'vuelidate/lib/validators'
+
 export default {
+  mixins: [validationMixin],
   name: 'ClientForm',
   data() {
     return {
@@ -207,6 +211,11 @@ export default {
         }
       ]
     }
-  }, 
+  },
+  validations: {
+
+  }
+
+
 }
 </script>
