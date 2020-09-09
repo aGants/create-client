@@ -19,8 +19,18 @@ export default {
 <style lang="scss">
 
 $input-width: 180px;
-$input-padding: 5px 5px;
+$input-padding: 5px 10px;
 $input-height: 15px;
+
+
+%border {
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+    &:hover, &:focus, &:active  {
+      border: 1px solid #000000;
+      outline: none;
+    }
+}
 
 * {
   margin: 0;
@@ -85,24 +95,22 @@ body {
       width: $input-width;
       height: $input-height;
       padding: $input-padding;
-      border: 1px solid #ddd;
-      &:hover, &:focus, &:active  {
-        border: 1px solid #000000;
-        outline: none;
-      }
+      @extend %border;
 
       &_textarea {
         width: $input-width+2;
         padding: $input-padding;
         height: 100px;
         resize: none;
+        @extend %border;
       }
 
       &_select {
-        width: $input-width+14;
+        width: $input-width+20;
         padding: $input-padding;
         -ms-overflow-style: none; 
         &::-webkit-scrollbar { width: 0; }
+        @extend %border;
       }
     }
   }
