@@ -77,15 +77,17 @@ body {
       padding: $input-padding;
 
       &_textarea {
+        width: $input-width+2;
         padding: $input-padding;
-        width: $input-width;
         height: 100px;
         resize: none;
       }
 
       &_select {
-        width: $input-width;
+        width: $input-width+14;
         padding: $input-padding;
+        -ms-overflow-style: none; 
+        &::-webkit-scrollbar { width: 0; }
       }
     }
   }

@@ -29,10 +29,10 @@
 
       <div class="form-group">
         <input name='sex' id='male' class="form-group__input_radio" type="radio">
-        <label for="male" class="form-group__label_radio" checked>Мужчина:</label>
+        <label for="male" class="form-group__label_radio" checked>Мужчина</label>
         
         <input name='sex' id='female' class="form-group__input_radio" type="radio">
-        <label for="female" class="form-group__label_radio">Женщина:</label>
+        <label for="female" class="form-group__label_radio">Женщина</label>
       </div>
       
       <div class="form-group">
