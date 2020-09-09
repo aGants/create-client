@@ -37,10 +37,12 @@
       
       <div class="form-group">
         <label for="clients" class="form-group__label">Группа клиентов:</label>
-        <select id="clients" class="form-group__input_select" multiple size="3">
-          <option>VIP</option>
-          <option>Проблемные</option>
-          <option>ОМС</option>
+        <select id="clients" class="form-group__input_select" multiple size="3" v-model='client'>
+          <option v-for="(client, index) in clients" 
+            :value="client.value"
+            :key='index'>
+            {{ client.label }}
+            </option>
         </select>
       </div>
 
@@ -178,6 +180,21 @@ export default {
           label: 'Вод. удостоверение',
           value: 'Drivers license'
         },
+      ],
+      client: ['VIP'],
+      clients: [
+        {
+          label: 'VIP',
+          value: 'VIP'
+        },
+        {
+          label: 'Проблемные',
+          value: 'Problem'
+        },
+        {
+          label: 'ОМС',
+          value: 'OMC'
+        }
       ]
     }
   }
