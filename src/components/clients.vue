@@ -28,10 +28,10 @@
       </div> 
 
       <div class="form-group">
-        <input name='sex' id='male' class="form-group__input_radio" type="radio">
+        <input name='gender' id='male' value='male' v-model='gender' class="form-group__input_radio" type="radio">
         <label for="male" class="form-group__label_radio" checked>Мужчина</label>
         
-        <input name='sex' id='female' class="form-group__input_radio" type="radio">
+        <input name='gender' id='female' value='female' v-model='gender' class="form-group__input_radio" type="radio">
         <label for="female" class="form-group__label_radio">Женщина</label>
       </div>
       
@@ -58,7 +58,7 @@
       </div>
 
       <div class="form-group">
-        <input id='sms' class="form-group__input__checkbox" type="checkbox">
+        <input id='sms' class="form-group__input__checkbox" type="checkbox" v-model='smsDisagree'>
         <label for="sms" class="form-group__label_checkbox">Не отправлять СМС</label>
       </div>
     </div>
@@ -142,6 +142,7 @@ export default {
       name: '',
       middlename: '',
       tel: '',
+      gender: 'male',
       index: '',
       country: '',
       region: '',
@@ -151,6 +152,7 @@ export default {
       series: '',
       number: '',
       issued: '',
+      smsDisagree: false,
       doctor: 'Ivanov',
       doctors: [
         {
