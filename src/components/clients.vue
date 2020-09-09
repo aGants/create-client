@@ -44,7 +44,9 @@
       
       <div class="form-group">
         <label for="clients" class="form-group__label">Группа клиентов:</label>
-        <select id="clients" class="form-group__input_select" multiple size="3" v-model='form.client'>
+        <select id="clients" class="form-group__input_select" multiple size="3" v-model='form.client'
+          :class="$v.form.surname.$error ? 'error' : ''" 
+        >
           <option v-for="(client, index) in clients" 
             :value="client.value"
             :key='index'>
@@ -161,7 +163,7 @@ export default {
         tel: '',
         gender: 'male',
         doctor: 'Ivanov',
-        client: ['VIP'],
+        client: [],
         smsDisagree: false,
       },
       address: {
