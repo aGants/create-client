@@ -7,7 +7,6 @@
         <input id="surname" class="form-group__input" type="text" v-model.trim="form.surname"
           :class="$v.form.surname.$error ? 'error' : ''" 
         >
-
       </div>
 
       <div class="form-group">
@@ -31,7 +30,8 @@
       
       <div class="form-group">
         <label for="tel" class="form-group__label">Номер телефона:</label>
-        <input id="tel" class="form-group__input" inputmode="tel" v-model.trim="form.tel">
+        <input id="tel" class="form-group__input" inputmode="tel" v-model.trim="form.tel"
+        :class="$v.form.tel.$error ? 'error' : ''" placeholder="79992751237">
       </div> 
 
       <div class="form-group">
@@ -45,7 +45,7 @@
       <div class="form-group">
         <label for="clients" class="form-group__label">Группа клиентов:</label>
         <select id="clients" class="form-group__input_select" multiple size="3" v-model='form.client'
-          :class="$v.form.surname.$error ? 'error' : ''" 
+          :class="$v.form.client.$error ? 'error' : ''" 
         >
           <option v-for="(client, index) in clients" 
             :value="client.value"
@@ -148,7 +148,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { required, minLength } from 'vuelidate/lib/validators'
+import { required, minLength, numeric } from 'vuelidate/lib/validators'
 
 export default {
   mixins: [validationMixin],
@@ -230,7 +230,7 @@ export default {
       surname: { required },
       name: { required },
       bdate: { required },
-      tel: { required, minLength: minLength(11) },
+      tel: { required, minLength: minLength(11), numeric, validFormat: val => /^[7][0-9]{10}$/.test(val) },
       client: { required },
     },
     address: {
