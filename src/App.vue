@@ -22,8 +22,8 @@ $input-width: 180px;
 $input-padding: 5px 10px;
 $input-height: 15px;
 
-
 %border {
+  margin-bottom: 5px;
   background-color: #fbfbfb;
   border: 1px solid #ddd;
     &:hover, &:focus, &:active  {
@@ -43,17 +43,23 @@ body {
   align-items: center;
   padding: 10vh 0;
   background-color: #e2e2ee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-size: 12px;
+  color: #666
 }
 
 .create {
   margin: auto;
   background-color: #ffffff;
-  padding: 30px;
+  padding: 0px 30px;
 }
 
 .btn {
   width: 150px;
-  margin: 0 30px 30px;
+  margin: 0 30px 20px;
   padding: 10px;
   cursor: pointer;
 }
@@ -72,7 +78,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   &-block {
-    padding: 30px;
+    padding: 15px 30px 5px;
   }
 
   &-group {

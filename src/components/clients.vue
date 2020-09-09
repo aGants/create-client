@@ -7,6 +7,8 @@
         <input id="surname" class="form-group__input" type="text" v-model.trim="form.surname"
           :class="$v.form.surname.$error ? 'error' : ''" 
         >
+        <p v-if='$v.form.surname.$dirty && !$v.form.surname.required' class='error_feedback'>Введите фамилию</p>
+        <p v-else>Обязательное поле</p>
       </div>
 
       <div class="form-group">
@@ -14,6 +16,8 @@
         <input id="name" class="form-group__input" type="text" v-model.trim="form.name"
         :class="$v.form.name.$error ? 'error' : ''" 
         >
+        <p v-if='$v.form.name.$dirty && !$v.form.name.required' class='error_feedback'>Введите имя</p>
+        <p v-else>Обязательное поле</p>
       </div>
 
       <div class="form-group">
@@ -26,12 +30,19 @@
         <input id="bdate" class="form-group__input" type="date" v-model.trim="form.bdate"
         :class="$v.form.bdate.$error ? 'error' : ''" 
         >
+        <p v-if='$v.form.bdate.$dirty && !$v.form.bdate.required' class='error_feedback'>Введите дату рождения</p>
+        <p v-else>Обязательное поле</p>
       </div>
       
       <div class="form-group">
         <label for="tel" class="form-group__label">Номер телефона:</label>
         <input id="tel" class="form-group__input" inputmode="tel" v-model.trim="form.tel"
         :class="$v.form.tel.$error ? 'error' : ''" placeholder="79992751237">
+        <p v-if='$v.form.tel.$dirty && !$v.form.tel.required' class='invalid-feedback'>Введите номер телефона</p>
+        <p v-else-if='$v.form.tel.$dirty && !$v.form.tel.numeric' class='invalid-feedback'>Должен содержать только цифры</p>
+        <p v-else-if='$v.form.tel.$dirty && !$v.form.tel.minLength' class='invalid-feedback'>Должен содержать 11 цифр</p>
+        <p v-else-if='$v.form.tel.$dirty && !$v.form.tel.validFormat' class='invalid-feedback'>Номер должен начинаться с 7</p>
+        <p v-else>Обязательное поле</p>
       </div> 
 
       <div class="form-group">
@@ -53,6 +64,8 @@
             {{ client.label }}
             </option>
         </select>
+        <p v-if='$v.form.client.$dirty && !$v.form.client.required' class='error_feedback'>Выберите группу(ы) клиента</p>
+        <p v-else>Обязательное поле</p>
       </div>
 
       <div class="form-group">
@@ -93,6 +106,8 @@
         <input id="city" class="form-group__input" v-model.trim="address.city"
         :class="$v.address.city.$error ? 'error' : ''" 
         >
+        <p v-if='$v.address.city.$dirty && !$v.address.city.required' class='error_feedback'>Введите город</p>
+        <p v-else>Обязательное поле</p>
       </div> 
 
       <div class="form-group">
@@ -116,6 +131,7 @@
             {{ doc.label }}
             </option>
         </select>
+        <p>Обязательное поле</p>
       </div>
 
       <div class="form-group">
@@ -139,6 +155,8 @@
         <input id="passdate" class="form-group__input" type='date' v-model.trim="pass.passdate"
         :class="$v.pass.passdate.$error ? 'error' : ''" 
         >
+        <p v-if='$v.pass.passdate.$dirty && !$v.pass.passdate.required' class='error_feedback'>Введите дату выдачи</p>
+        <p v-else>Обязательное поле</p>
       </div> 
     </div>
   </div>
@@ -230,7 +248,7 @@ export default {
       surname: { required },
       name: { required },
       bdate: { required },
-      tel: { required, minLength: minLength(11), numeric, validFormat: val => /^[7][0-9]{10}$/.test(val) },
+      tel: { required, numeric, validFormat: val => /^[7][0-9]{10}$/.test(val), minLength: minLength(11) },
       client: { required },
     },
     address: {
