@@ -1,5 +1,7 @@
 # [Форма создания клиента](https://agants.github.io/create-client/)
 
+![](image.jpg)
+
 ## Используемые технологии: 
 * Vue.js
 * Vuelidate
